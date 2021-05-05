@@ -238,6 +238,9 @@ overflow:visible;
 }
  </style>
    <body onload="init()">
+       <script>
+           alert("Halluu Cantikk")
+       </script>
 <div class="area">
   <ul class="circles">
     <li></li>
@@ -253,8 +256,7 @@ overflow:visible;
   </ul>
 </div><div class="context">
   <div class="text-wrapper">
-    <h1 id="clock-text"></h1>
-    <h1 id="greet-text"></h1>
+    <h1 id="demo"></h1>
   </div>
   <div class="form-wrapper">
     <div class="form-input">
@@ -290,7 +292,8 @@ overflow:visible;
   <script src='https://cdn.jsdelivr.net/npm/typed.js@2.0.11'></script>
 <script src='https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-  
+         </script>
+       <script src="Countdown"></script>
     <script type="text/javascript">
       $(function () {
   init();
@@ -335,44 +338,9 @@ function refreshTime() {
   $("#clock-text").html(getTime());
   var t = setTimeout(refreshTime, 1000);
 }
-function getGreetText() {
-  var typed = new Typed("#greet-text", {
-    strings: [greetingTextTo("Jihan")], //Ganti nama disini
-    loop: false,
-    typeSpeed: 50, //Atur kecepatan ketik
-    showCursor: false,
-    onComplete: function (self) {
-      $(".context h1").css("color", "#fff");
-      $(".area").css("background", "#000");
-    }
   });
 }
-function greetingTextTo(i, delay = 100) {
-  var today = new Date();
-  var hrs = today.getHours();
 
-  var greet;
-
-  if (hrs < 12) greet = "Selamat Pagii,Have A Nice Day! ^";
-  else if (hrs >= 12 && hrs <= 15) greet = "Selamat Siang, ^";
-  else if (hrs >= 15 && hrs <= 18) greet = "Selamat Sore, ^";
-   else if (hrs >= 18 && hrs <= 21) greet = "Selamat Malam, ^";
-  else greet = "Udah Malem woyy!!! ^";
-
-  return greet + delay + i;
-}
-function getTime() {
-  var today = new Date();
-  var h = checkTime(today.getHours());
-  var m = checkTime(today.getMinutes());
-  var s = checkTime(today.getSeconds());
-
-  return h + ":" + m + ":" + s;
-}
-function checkTime(i) {
-  if (i < 10) i = "0" + i;
-  return i;
-}
 function showColorPicker(x, y) {
   var pcr = $(".pcr-app");
   pcr.addClass("visible");
