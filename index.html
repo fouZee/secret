@@ -1,266 +1,135 @@
 <!DOCTYPE html>
-	<html lang="en">
-	<head>
-	<title> Jihann Cantikk </title>
-	<p id="demo"></p>
+<html lang="en">
+<head>
+	<title>Hallu Cantikk</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.css">
     <style type="text/css">
     	body{
-    		overflow: hidden;
+    	overflow: hidden;
         background: black;
         width: 100%;
         height: 100vh;
       }
       .bg{
-        width: 100%;
-        height: 100vh;
-        position: absolute;
-        z-index: -1;
-      }
-      .jam.demo{
-        margin: 0px;
+	  		width: 100%;
+	  		height: 100vh;
+	  		position: absolute;
+	  		z-index: -1;
+	  	}
+      .jam{
+      	font-family:sans-serif;
+      	margin: 0px;
         padding: 0px;
         position: absolute;
         color: #fff;
         transition: all 5s ease, color 1s ease;
-      }
-      .jam{
-        opacity: 0;
+      	opacity: 0;
         font-size: 100pt;
         left: 50%;
         bottom: 50%;
         transform: translate(-50%,calc(50% - 0px));
       }
-      .demo{
-        font-size: 25pt;
-        left: 50%;
-        bottom: 50%;
-        text-align: center;
-        transform: translate(-50%,calc(50% + 100px));
-      }
-      .kontrol{
-        margin: 20px;
-        background: #fff;
-        padding: 20px;
-        position: absolute;
-        width: 200px;
-        border-radius: 10px;
-        left: -220px;
-        transition: all 1 ease;
-        z-index: 99;
-      }
-      .kotak{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-      }
-      .kotak li{
-        position: absolute;
-        display: block;
-        list-style: none;
-        width: 25px;
-        height: 25px;
-        background: rgba(255,255,255,0.2);
-        animation: animate 20s linear infinite; 
-        bottom: -150px;
-        transition: all 1s ease;
-      }
-      .kotak li:nth-child(1){
-        left: 86%;
-        width: 80px;
-        height: 80px;
-        animation-delay: 0s;
-      }
-      .kotak li:nth-child(2){
-        left: 12%;
-        width: 30px;
-        height: 30px;
-        animation-delay: 1.5s;
-        animation-duration: 10s;
-      }
-      .kotak li:nth-child(3){
-        left: 70%;
-        width: 100px;
-        height: 100px;
-        animation-delay: 5.5s;
-      }
-      .kotak li:nth-child(4){
-        left: 42%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 0s;
-        animation-duration: 15s; 
-      }
-      .kotak li:nth-child(5){
-        left: 15%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 3.5s;
-      }
       .bulat{
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        display: flex;
-        left:50%;
-        bottom: 50%;
-        transform: translate(-50%,50%) scale(0);
-        transition: 3s all ease;
-      }
-      .bulat span:nth-child(1){
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 2px solid #fff;
-        border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-        transition: 0.5s;
-        animation: animate2 6s linear infinite;
-      }
-      .bulat span:nth-child(2){
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 2px solid #fff;
-        border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-        transition: 0.5s;
-        animation: animate3 4s linear infinite;
-      }
-      .bulat span:nth-child(3){
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 5px solid #fff;
-        border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
-        transition: 0.5s;
-        animation: animate2 10s linear infinite;
-      }
-      .pengembang{
-        position: absolute;
-        font-size: 10px;
-        color: #FFFFFF;
-        bottom: 0px;
-        right: 0px;
-        opacity: 0.3;
-      }
-      @keyframes animate{
-        0%{
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-        }
-        100%{
-          transform: translateY(-100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-      @keyframes animate2{
-        0%{
-          transform:rotate(0deg);
-        }
-        100%{
-          transform:rotate(360deg);
-        }
-      }
-      @keyframes animate3{
-        0%{
-          transform:rotate(360deg);
-        }
-        100%{
-          transform:rotate(0deg);
-        }
-      }
-      @media only screen and (max-width: 900px), screen and (max-height: 700px) {
-        .jam,.ucapan{
-          transition: all 1s ease;
-        }
-      .jam{
-          font-size: 50pt;
-          transform: translate(-50%,calc(50% - 0px));
-        }
-        .ucapan{
-          font-size: 15pt;
-          transform: translate(-50%,calc(50% + 50px));
-        }
-        .quotes,.note{
-          font-size: 15pt;
-        }
-        .bulat{
-          width: 300px;
-          height: 300px;
-        }
-      }
-      @media only screen and (max-width: 500px){
-        .ucapan{
-          font-size: 10pt;
-        }
-        .quotes{
-          font-size: 7pt;
-        }
-        .note{
-          font-size: 10pt;
-        }
-      }
+  			position: absolute;
+  			width: 600px;
+  			height: 600px;
+  			display: flex;
+  			left:50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%,50%) scale(0);
+	  		transition: 3s all ease;
+  		}
+  		.bulat span:nth-child(1){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 2px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate2 6s linear infinite;
+  		}
+  		.bulat span:nth-child(2){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 2px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate3 4s linear infinite;
+  		}
+  		.bulat span:nth-child(3){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 5px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate2 10s linear infinite;
+  		}
+  		@keyframes animate{
+  			0%{
+  				transform: translateY(0) rotate(0deg);
+  				opacity: 1;
+  			}
+  			100%{
+  				transform: translateY(-100vh) rotate(360deg);
+  				opacity: 0;
+  			}
+  		}
+  		@keyframes animate2{
+  			0%{
+  				transform:rotate(0deg);
+  			}
+  			100%{
+  				transform:rotate(360deg);
+  			}
+  		}
+  		@keyframes animate3{
+  			0%{
+  				transform:rotate(360deg);
+  			}
+  			100%{
+  				transform:rotate(0deg);
+  			}
+  		}
+  			@media only screen and (max-width: 900px), screen and (max-height: 700px) {
+  			.jam{
+  				transition: all 1s ease;
+  				font-size: 50pt;
+		  		transform: translate(-50%,calc(50% - 0px));
+  			}
+  			.bulat{
+	  			width: 300px;
+	  			height: 300px;
+	  		}
+  		}
     </style>
-	</head>
-	<body onload="init()">
-    <div class="kontrol" onload="readStorage()">
-      <ul class="kotak">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <div class="bulat">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="jam" id="demo">
-      </div>
-      <div class="pengembang">Haii Cantikkk</div>
-  </div>
-	<script type="text/javascript">
-		// Set the date we're counting down to
-var countDownDate = new Date("Jun 6, 2021 00:00:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "Happy Birthday";
-  }
-}, 1000);
-</script>
-</body>
-</html>
+</head>
+<body onload="init()">
+	<script>
+		alert("Hallu Cantikk")
+	</script>
+	<ul class="kotak">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<div class="jam" id="demo">
+	</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2@2.0.0/dist/spectrum.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+		<script src="Countdown"></script>
